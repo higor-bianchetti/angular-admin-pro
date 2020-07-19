@@ -2,11 +2,11 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 import { DashboardComponent } from "./pages/dashboard/dashboard.component";
-import { LoginComponent } from "./auth/login/login.component";
-import { RegisterComponent } from "./auth/register/register.component";
 import { ProgressComponent } from "./pages/progress/progress.component";
+import { RegisterComponent } from "./auth/register/register.component";
+import { NotFoundComponent } from "./not-found/not-found.component";
 import { Graph1Component } from "./pages/graph1/graph1.component";
-import { NotFoundComponent } from "./pages/not-found/not-found.component";
+import { LoginComponent } from "./auth/login/login.component";
 import { PagesComponent } from "./pages/pages.component";
 
 const routes: Routes = [
