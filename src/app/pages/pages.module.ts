@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 
+import { ComponentsModule } from "../components/components.module";
 import { SharedModule } from "../shared/shared.module";
 
 import { DashboardComponent } from "./dashboard/dashboard.component";
@@ -23,6 +24,12 @@ import { PagesComponent } from "./pages.component";
     Graph1Component,
     PagesComponent,
   ],
-  imports: [CommonModule, FormsModule, RouterModule, SharedModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    ComponentsModule,
+    SharedModule,
+  ],
 })
 export class PagesModule {}

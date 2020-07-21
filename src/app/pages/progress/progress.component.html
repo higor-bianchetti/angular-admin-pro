@@ -5,7 +5,13 @@
         <h4 class="card-title">Striped Progress Bar</h4>
         <div class="progress m-t-20">
           <div class="progress-bar bg-primary progress-bar-striped active" style="height:20px;"
-            [style.width]="getPercentage" role="progressbar">
+            [style.width]="getProgress1" role="progressbar">
+          </div>
+        </div>
+
+        <div class="progress m-t-20">
+          <div class="progress-bar bg-info progress-bar-striped active" style="height:20px;"
+            [style.width]="getProgress2" role="progressbar">
           </div>
         </div>
       </div>
@@ -17,19 +23,8 @@
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-        <div class="input-group">
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="button" (click)="changeValue(-5)">
-              <i class="fa fa-minus"></i>
-            </button>
-          </span>
-          <input type="number" class="form-control" placeholder="Progress" min="0" max="100" [(ngModel)]="progress">
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="button" (click)="changeValue(5)">
-              <i class="fa fa-plus"></i>
-            </button>
-          </span>
-        </div>
+        <app-incrementor (changeProgress)="getProgressChanged(1, $event)" [value]="progress1"></app-incrementor>
+        <!-- <app-incrementor (changeProgress)="progress1 = $event" [value]="progress1"></app-incrementor> -->
       </div>
     </div>
   </div>
@@ -37,7 +32,9 @@
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-        1
+        <app-incrementor (changeProgress)="getProgressChanged(2, $event)" [value]="progress2" [btnClass]="'btn-info'">
+        </app-incrementor>
+        <!-- <app-incrementor (changeProgress)="progress2 = $event" [value]="progress2"></app-incrementor> -->
       </div>
     </div>
   </div>
