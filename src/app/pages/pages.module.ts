@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
+import { ChartsModule } from "ng2-charts";
 
 import { ComponentsModule } from "../components/components.module";
 import { SharedModule } from "../shared/shared.module";
@@ -30,6 +31,7 @@ import { PagesComponent } from "./pages.component";
     RouterModule,
     ComponentsModule,
     SharedModule,
+    ChartsModule,
   ],
 })
 export class PagesModule {}
