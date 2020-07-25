@@ -1,3 +1,17 @@
-<p>
-  graph1 works!
-</p>
+<div class="row">
+  <div class="col-6">
+    <app-doughnut title="Sales"></app-doughnut>
+  </div>
+  <div class="col-6">
+    <app-doughnut title="Purchases" [chartLabels]="labels2" [chartData]="data2" [chartColors]="colors2"></app-doughnut>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <app-doughnut title="Changes" [chartData]="data3" [chartColors]="colors3"></app-doughnut>
+  </div>
+  <div class="col-6">
+    <app-doughnut [chartData]="data4" [chartColors]="colors4"></app-doughnut>
+  </div>
+</div>
