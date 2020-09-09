@@ -150,3 +150,5 @@ const initFunctions = () => {
     });
   });
 };
+
+initFunctions();
