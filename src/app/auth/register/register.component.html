@@ -35,6 +35,14 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col text-danger">
+            <p *ngIf="invalidField('name')">Name is required</p>
+            <p *ngIf="invalidField('email')">Invalid email</p>
+            <p *ngIf="checkPasswords()">The passwords are not equal</p>
+            <p *ngIf="checkTerms()">You have to agree with the terms</p>
+          </div>
+        </div>
         <div class="form-group text-center m-t-20">
           <div class="col-xs-12">
             <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Sign
