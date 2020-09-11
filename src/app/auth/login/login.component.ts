@@ -14,7 +14,10 @@ export class LoginComponent {
   public formSubmitted = false;
 
   public loginForm = this.formBuilder.group({
-    email: ["", [Validators.required, Validators.email]],
+    email: [
+      localStorage.getItem("email") || "",
+      [Validators.required, Validators.email],
+    ],
     password: ["", Validators.required],
     remember: [false],
   });
@@ -29,7 +32,11 @@ export class LoginComponent {
     // this.router.navigateByUrl("/");
     this.userService.login(this.loginForm.value).subscribe(
       (resp) => {
-        console.log(resp);
+        if (this.loginForm.get("remember").value) {
+          localStorage.setItem("email", this.loginForm.get("email").value);
+        } else {
+          localStorage.removeItem("email");
+        }
       },
       (err) => {
         Swal.fire("Error", err.error.msg, "error");

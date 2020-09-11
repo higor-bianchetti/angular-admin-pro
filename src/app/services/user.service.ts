@@ -18,7 +18,6 @@ export class UserService {
     return this.http.post(`${base_url}/users`, formData).pipe(
       tap((resp: any) => {
         localStorage.setItem("token", resp.token);
-        console.log(resp);
       })
     );
   }
@@ -27,7 +26,6 @@ export class UserService {
     return this.http.post(`${base_url}/login`, formData).pipe(
       tap((resp: any) => {
         localStorage.setItem("token", resp.token);
-        console.log(resp);
       })
     );
   }
