@@ -1,5 +1,6 @@
 import { FormBuilder, Validators, FormGroup } from "@angular/forms";
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
+import Swal from "sweetalert2";
 
 import { UserService } from "../../services/user.service";
 
@@ -42,7 +43,9 @@ export class RegisterComponent {
         console.log("User Created");
         console.log(resp);
       },
-      (err) => console.warn(err.error.msg)
+      (err) => {
+        Swal.fire("Error!", err.error.msg, "error");
+      }
     );
   }
 
