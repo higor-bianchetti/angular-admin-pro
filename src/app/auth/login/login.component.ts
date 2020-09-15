@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    // this.router.navigateByUrl("/");
     this.userService.login(this.loginForm.value).subscribe(
       (resp) => {
         if (this.loginForm.get("remember").value) {
@@ -44,6 +43,8 @@ export class LoginComponent implements OnInit {
         } else {
           localStorage.removeItem("email");
         }
+
+        this.router.navigateByUrl("/");
       },
       (err) => {
         Swal.fire("Error", err.error.msg, "error");
@@ -83,9 +84,9 @@ export class LoginComponent implements OnInit {
       {},
       (googleUser) => {
         const id_token = googleUser.getAuthResponse().id_token;
-        this.userService.loginGoogle(id_token).subscribe();
-
-        // TODO: Redirect to dashboard
+        this.userService.loginGoogle(id_token).subscribe((resp) => {
+          this.router.navigateByUrl("/");
+        });
       },
       function (error) {
         alert(JSON.stringify(error, undefined, 2));

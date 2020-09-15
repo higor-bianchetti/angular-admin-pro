@@ -8,11 +8,13 @@ import { PromisesComponent } from "./promises/promises.component";
 import { Graph1Component } from "./graph1/graph1.component";
 import { RxjsComponent } from "./rxjs/rxjs.component";
 import { PagesComponent } from "./pages.component";
+import { AuthGuard } from "../guards/auth.guard";
 
 const routes: Routes = [
   {
     path: "dashboard",
     component: PagesComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: "", component: DashboardComponent, data: { title: "Dashboard" } },
       {
