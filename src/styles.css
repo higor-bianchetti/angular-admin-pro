@@ -17,3 +17,12 @@
   justify-content: center;
   text-align: center;
 }
+
+.img-avatar {
+  max-width: 200px;
+  max-height: 200px;
+  margin-bottom: 15px;
+  border: dashed 2px #999;
+  border-radius: 50%;
+  padding: 25px;
+}

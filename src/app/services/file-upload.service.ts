@@ -30,9 +30,13 @@ export class FileUploadService {
       });
 
       const data = await resp.json();
-      console.log(data);
 
-      return "Image Uploaded: IMAGE";
+      if (data && data.ok) {
+        return data.fileName;
+      } else {
+        console.log(data.msg);
+        return false;
+      }
     } catch (error) {
       console.log("Error to update picture! ", error);
       return false;
