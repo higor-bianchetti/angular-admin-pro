@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 
 import { AccountSettingsComponent } from "./account-settings/account-settings.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
+import { UsersComponent } from "./management/users/users.component";
 import { ProgressComponent } from "./progress/progress.component";
 import { PromisesComponent } from "./promises/promises.component";
 import { ProfileComponent } from "./profile/profile.component";
@@ -39,6 +40,11 @@ const routes: Routes = [
         path: "profile",
         component: ProfileComponent,
         data: { title: "User Profile" },
+      },
+      {
+        path: "users",
+        component: UsersComponent,
+        data: { title: "User Management" },
       },
     ],
   },
