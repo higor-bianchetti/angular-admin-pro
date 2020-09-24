@@ -7,6 +7,7 @@ import { Observable, of } from "rxjs";
 import { RegisterForm } from "../interfaces/register-form.interface";
 import { LoginForm } from "../interfaces/login-form.interface";
 import { environment } from "../../environments/environment";
+import { GetUsers } from "../interfaces/get-users.interface";
 import { User } from "../models/user.model";
 
 declare const gapi: any;
@@ -34,6 +35,14 @@ export class UserService {
 
   get uid(): string {
     return this.user.uid || "";
+  }
+
+  get headers() {
+    return {
+      headers: {
+        "x-token": this.token,
+      },
+    };
   }
 
   googleInit() {
@@ -113,5 +122,11 @@ export class UserService {
         this.router.navigateByUrl("/login");
       });
     });
+  }
+
+  getUsers(offset: number = 0) {
+    const url = `${base_url}/users?offset=${offset}`;
+
+    return this.http.get<GetUsers>(url, this.headers);
   }
 }
