@@ -127,6 +127,23 @@ export class UserService {
   getUsers(offset: number = 0) {
     const url = `${base_url}/users?offset=${offset}`;
 
-    return this.http.get<GetUsers>(url, this.headers);
+    return this.http.get<GetUsers>(url, this.headers).pipe(
+      map((resp) => {
+        const users = resp.users.map(
+          (user) =>
+            new User(
+              user.name,
+              user.email,
+              "",
+              user.img,
+              user.google,
+              user.role,
+              user.uid
+            )
+        );
+
+        return { total: resp.amount, users };
+      })
+    );
   }
 }

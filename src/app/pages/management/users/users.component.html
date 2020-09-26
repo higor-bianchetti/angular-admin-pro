@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div class="row fast-animated fadeIn">
+<div class="row fast-animated fadeIn" *ngIf="loading">
   <div class="col-12">
     <div class="alert alert-info text-center" role="alert">
       <h4 class="alert-heading">Loading</h4>
@@ -18,7 +18,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row fast-animated fadeIn" *ngIf="!loading">
   <div class="col-12">
     <div class="card">
       <div class="card-body">
@@ -28,25 +28,25 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th>Avatar</th>
+                <th class="w100">Avatar</th>
                 <th>Email</th>
                 <th>Name</th>
-                <th>Role</th>
-                <th>Auth</th>
-                <th class="text-nowrap">Actions</th>
+                <th class="w100">Role</th>
+                <th class="w100">Auth</th>
+                <th class="text-nowrap w100">Actions</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let user of users">
-                <td>xxxxxxxxxx</td>
-                <td>{{user.email}}</td>
-                <td>{{user.name}}</td>
-                <td>{{user.role}}</td>
-                <td>
+                <td class="text-center"><img [src]="user.imageUrl" [alt]="user.name" class="avatar" /></td>
+                <td style="vertical-align: middle">{{user.email}}</td>
+                <td style="vertical-align: middle">{{user.name}}</td>
+                <td style="vertical-align: middle">{{user.role}}</td>
+                <td style="vertical-align: middle">
                   <span *ngIf="user.google" class="label label-danger">Google</span>
                   <span *ngIf="!user.google" class="label label-info">Email</span>
                 </td>
-                <td class="text-nowrap">
+                <td class="text-nowrap text-center" style="vertical-align: middle">
                   <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i
                       class="fa fa-pencil text-inverse m-r-10"></i> </a>
                   <a href="#" data-toggle="tooltip" data-original-title="Delete"> <i
