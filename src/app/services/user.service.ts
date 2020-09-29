@@ -146,4 +146,10 @@ export class UserService {
       })
     );
   }
+
+  deleteUser(user: User) {
+    const url = `${base_url}/users/${user.uid}`;
+
+    return this.http.delete(url, this.headers);
+  }
 }

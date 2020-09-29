@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import Swal from "sweetalert2";
 
 import { SearchesService } from "../../../services/searches.service";
 import { UserService } from "../../../services/user.service";
@@ -55,6 +56,28 @@ export class UsersComponent implements OnInit {
 
     this.searchesService.search("users", target).subscribe((result) => {
       this.users = result;
+    });
+  }
+
+  deleteUser(user: User) {
+    Swal.fire({
+      title: "Delete user?",
+      text: `User ${user.name} will be deleted`,
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete",
+    }).then((result) => {
+      if (result.value) {
+        this.userService.deleteUser(user).subscribe((resp) => {
+          this.getUsers();
+
+          Swal.fire(
+            "Deleted!",
+            `User ${user.name} has been deleted`,
+            "success"
+          );
+        });
+      }
     });
   }
 }

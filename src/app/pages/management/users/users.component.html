@@ -48,9 +48,9 @@
                   <span *ngIf="!user.google" class="label label-info">Email</span>
                 </td>
                 <td class="text-nowrap text-center" style="vertical-align: middle">
-                  <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i
-                      class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                  <a href="#" data-toggle="tooltip" data-original-title="Delete"> <i
+                  <a data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i>
+                  </a>
+                  <a data-toggle="tooltip" data-original-title="Delete" class="pointer" (click)="deleteUser(user)"> <i
                       class="fa fa-close text-danger"></i>
                   </a>
                 </td>
