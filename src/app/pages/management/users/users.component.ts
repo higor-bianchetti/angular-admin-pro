@@ -84,4 +84,10 @@ export class UsersComponent implements OnInit {
       }
     });
   }
+
+  changeRole(user: User) {
+    this.userService.updateUser(user).subscribe((resp) => {
+      console.log(resp);
+    });
+  }
 }

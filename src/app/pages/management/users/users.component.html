@@ -32,7 +32,7 @@
                 <th class="w100">Avatar</th>
                 <th>Email</th>
                 <th>Name</th>
-                <th class="w100">Role</th>
+                <th class="w150">Role</th>
                 <th class="w100">Auth</th>
                 <th class="text-nowrap w100">Actions</th>
               </tr>
@@ -42,14 +42,17 @@
                 <td class="text-center"><img [src]="user.imageUrl" [alt]="user.name" class="avatar" /></td>
                 <td style="vertical-align: middle">{{user.email}}</td>
                 <td style="vertical-align: middle">{{user.name}}</td>
-                <td style="vertical-align: middle">{{user.role}}</td>
+                <td style="vertical-align: middle">
+                  <select class="form-control" [(ngModel)]="user.role" (change)="changeRole(user)">
+                    <option value="ADMIN_ROLE">Admin</option>
+                    <option value="USER_ROLE">User</option>
+                  </select>
+                </td>
                 <td style="vertical-align: middle">
                   <span *ngIf="user.google" class="label label-danger">Google</span>
                   <span *ngIf="!user.google" class="label label-info">Email</span>
                 </td>
                 <td class="text-nowrap text-center" style="vertical-align: middle">
-                  <a data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i>
-                  </a>
                   <a data-toggle="tooltip" data-original-title="Delete" class="pointer" (click)="deleteUser(user)"> <i
                       class="fa fa-close text-danger"></i>
                   </a>
